@@ -1,7 +1,7 @@
-from django.contrib import admin
-from django.conf.urls import url
+from django.urls import include, path
 from .import views
 
 urlpatterns = [
-    url(r'^', views.FirstPage.as_view(), name='First Page'),
+    path('', views.FirstPage.as_view(), name='First Page'),
+    path('ajax/load-skills/', views.load_skills, name='ajax_load_skills'),
 ]

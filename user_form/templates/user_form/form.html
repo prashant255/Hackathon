@@ -24,7 +24,62 @@
 </form>
 </body>
 </html>-->
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <title>Skills</title>
+    <style type="text/css">
+      .errorlist {
+        margin: 0;
+        padding: 0;
+      }
+      .errorlist li {
+        list-style: none;
+        font-size: 90%;
+        color: red;
+      }
+      .errorlist ~ input,
+      .errorlist ~ select {
+        border-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>User form</h1>
+    <hr>
+    <h3>Please fill this form</h3>
+
+  <form method="post" id="userForm" data-skills-url="{% url 'ajax_load_skills' %}" novalidate>
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <button type="submit">Save</button>
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    $("#id_category").change(function () {
+      var url = $("#userForm").attr("data-skills-url");
+      var categoryId = $(this).val();
+
+      $.ajax({
+        url: url,
+        data: {
+          'category': categoryId
+        },
+        success: function (data) {
+          $("#id_skills").html(data);
+        }
+      });
+
+    });
+  </script>
+
+  </body>
+</html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -38,4 +93,4 @@
 </form>
 
 </body>
-</html>
+</html>-->

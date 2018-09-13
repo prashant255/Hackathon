@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.views.generic import View
 from .forms import UserForm
-from .models import Form
+from .models import Form, Skills
 from django.http import HttpResponse, HttpResponseRedirect
 
 
@@ -22,7 +22,7 @@ class FirstPage(View):
         form = self.form_class(request.POST)
         form.save(self)
 
-        def load_cities(request):
-            country_id = request.GET.get('country')
-            cities = City.objects.filter(country_id=country_id).order_by('name')
-            return render(request, 'hr/city_dropdown_list_options.html', {'cities': cities})
+def load_skills(request):
+    category_id = request.GET.get('category')
+    skills = Skills.objects.filter(category_id = category_id).order_by('name')
+    return render(request, 'user_form/skills.html', {'skills': skills})
