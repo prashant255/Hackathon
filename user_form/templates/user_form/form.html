@@ -1,0 +1,41 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Page</title>
+</head>
+<body>
+<h3>Please fill this form</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        Category: <select name="category">
+    <option value="CEO">CEO</option>
+    <option value="Banker">Banker</option>
+    <option value="Engineer">Engineer</option>
+    <option value="Doctor">Doctor</option>
+  </select>
+        <br>
+        Skills: <input type="text" name="a"><br>
+        Income: <input type="number" name="b"><br>
+        Education qualification: <input type="text" name="c"><br>
+        Desired skills: <input type="text" name="d"><br>
+        Jobs: <input type="text" name="e"><br>
+        <input type="submit" value="Submit">
+</form>
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Page</title>
+</head>
+<body>
+<h3>Please fill this form</h3>
+<form action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create" />
+</form>
+
+</body>
+</html>
