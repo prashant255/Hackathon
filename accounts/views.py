@@ -31,7 +31,7 @@ class SignUp(View):
                     a=Form()
                     a.user = user
                     a.save()
-                    return render(request, 'user_form/form.html', {'form': form})
+                    return render(request, 'user_form/form_form.html', {'form': form})
         return render(request, self.template_name, {'form': form})
 
 def login_view(request):

@@ -1,4 +1,4 @@
-from .models import Form, Skills, Category
+from .models import Form, Skills
 from django import forms
 
 
