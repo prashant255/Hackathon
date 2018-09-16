@@ -6,7 +6,7 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = Form
-        fields = ['category', 'skills', 'income', 'edu_qualification', 'desired_skills', 'job', ]
+        fields = ['category', 'skills', 'income', 'edu_qualification']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
